@@ -2,7 +2,7 @@ import math
 import open3d as o3d
 import numpy as np
 
-def cross_intersection(cloud_list : list[o3d.geometry.PointCloud], precision : float = 0.5):
+def cross_intersection(cloud_list : list[o3d.geometry.PointCloud], precision : float = 0.2):
     """
     This function is used to get the intersection of all clouds
     :param cloud_list: the list of clouds which need to get the intersection
@@ -85,7 +85,6 @@ def cross_intersection(cloud_list : list[o3d.geometry.PointCloud], precision : f
     output = []
     for i in range (len(cloud_list)):
         cloud_tmp = o3d.geometry.PointCloud()
-        cloud_tmp.points = o3d.utility.Vector3dVector(np.array(cloud_list[i].points)[output_points_location[i]])
         cloud_tmp.points = o3d.utility.Vector3dVector(np.array(cloud_list[i].points)[output_points_location[i]])
         cloud_tmp.colors = o3d.utility.Vector3dVector(np.array(cloud_list[i].colors)[output_points_location[i]])
         output.append(cloud_tmp)

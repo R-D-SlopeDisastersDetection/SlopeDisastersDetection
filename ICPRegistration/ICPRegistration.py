@@ -4,7 +4,7 @@ import math
 import open3d as o3d
 import numpy as np
 
-class ICPRegistration:
+class Registration:
     def __init__(self, source, target, threshold, console_output=False):
         self.source = source
         self.target = target

@@ -1,8 +1,14 @@
 # cross_intersection
 本项目只包含了一个简单的函数，主要用于计算多个点云的交集部分，并输出每个点云的交集部分。 
 
-This project only includes a simple function, mainly used to calculate the intersection part of multiple point clouds and output the intersection part of each point cloud.
+This project only includes a simple function, mainly used to calculate 
+the intersection part of multiple point clouds and output the intersection part of each point cloud.
 
+请注意，本项目为了提高运行效率的原因，，只适用于凸包形状的点云，对于非凸包形状的点云，可能会出现错误。本项目主要结合微积分的思想构建而成。
+
+Please note that in order to improve the running efficiency, this project is only suitable for point clouds with convex 
+hull shapes. For point clouds with non-convex hull shapes, errors may occur. This project is mainly constructed based on
+the idea of calculus.
 ## 1. 环境配置（仅做参考） 
 Environment configuration (for reference only)
 
