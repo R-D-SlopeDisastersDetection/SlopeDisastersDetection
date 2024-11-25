@@ -7,7 +7,7 @@ import open3d as o3d
 
 
 class CSF2(object):
-    def __init__(self, inputfile: string, outputfile: string, filetype: string,
+    def __init__(self, inputfile: string,  filetype: string, outputfile: string = None,
                  bSloopSmooth: bool = False, cloth_resolution: float = 0.5, rigidness: float = 3,
                  time_step: float = 0.65, class_threshold: float = 0.03, interations: int = 500):
         """
@@ -40,6 +40,7 @@ class CSF2(object):
         self.csf.params.interations = self.interations
         self.ground = CSF.VecInt()
         self.non_ground = CSF.VecInt()
+        self.outfile = None
 
     def process(self):
         """
@@ -76,7 +77,8 @@ class CSF2(object):
 
         outfile = laspy.LasData(infile.header)
         outfile.points = points[np.array(self.ground)]
-        outfile.write(self.outputfile)
+        if self.outputfile is not None:
+            outfile.write(self.outputfile)
 
     def ply_process(self):
         infile = o3d.io.read_point_cloud(self.inputfile)
@@ -91,9 +93,10 @@ class CSF2(object):
         tmp = np.array(self.ground)
         outfile.points = o3d.utility.Vector3dVector(xyz[tmp])
         outfile.colors = o3d.utility.Vector3dVector(colors[tmp])
-        outfile.normals = o3d.utility.Vector3dVector(normals[tmp])
-
-        o3d.io.write_point_cloud(self.outputfile, outfile)
+        # outfile.normals = o3d.utility.Vector3dVector(normals[tmp])
+        self.outfile = outfile
+        if self.outputfile is not None:
+            o3d.io.write_point_cloud(self.outputfile, outfile)
 
     def ply_view_cloud(self):
         """
@@ -185,3 +188,4 @@ class CSF2(object):
 
     def get_interations(self):
         return self.interations
+

@@ -5,7 +5,8 @@ import numpy as np
 import open3d as o3d
 
 class CloudPointGridCutting:
-    def __init__(self, x_num : float, y_num : float, point_cloud: o3d.geometry.PointCloud, output_path : string = None, output_file_type : string = ".ply", cut_type :string = 'block_num'):
+    def __init__(self, x_num : float, y_num : float, point_cloud: o3d.geometry.PointCloud, output_path : string = None,
+                 output_file_type : string = ".ply", cut_type :string = 'block_num'):
         """
         This class is used to cut the point cloud into x_block * y_block blocks
         :param x_num: number of blocks in x direction or block size in x direction

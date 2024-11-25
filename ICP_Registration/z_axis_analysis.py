@@ -1,6 +1,9 @@
 import plyfile
 import numpy as np
 import matplotlib.pyplot as plt
+import plyfile
+import numpy as np
+import matplotlib.pyplot as plt
 
 def z_axis_analysis(path):
     # 读取PLY文件

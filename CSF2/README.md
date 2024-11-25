@@ -4,8 +4,8 @@
 参数包括以下
 ~~~
         :param inputfile: input file path
-        :param outputfile:  output file path
         :param filetype:    file type, "las" or "ply"
+        :param outputfile:  output file path, default is None,which will not save the output file
         :param bSloopSmooth: 是否进行边坡后处理。当有陡变地形是设置为ture。默认为False
         :param cloth_resolution: 布料网格分辨率，一般与点云间距相当，单位为m，默认为0.5
         :param rigidness:   布料刚性参数，可选值1，2，3. 1表示平坦地形。2表示有缓坡的地形。3表示有较陡的地形（比如山地）。默认为3
